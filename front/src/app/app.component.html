@@ -1,0 +1,45 @@
+<section>
+  <div class="title">title</div>
+  <div class="buttonCard">
+    <button (click)="nuevo()">N</button>
+    <span> | </span>
+    <button (click)="guardar()">G</button>
+    <span> | </span>
+    <button (click)="actualizar()">A</button>
+    <span> | </span>
+    <button (click)="eliminar()">E</button>
+  </div>
+  <div class="formContainer" id="form">
+    <form>
+      <label for="id">id</label>
+      <input type="text" name="id" id="id" placeholder="identificador" [(ngModel)]="ID">
+      <button (click)="traerUno()">Buscar uno</button><br>
+      <label for="name">nombre</label>
+      <input type="text" name="name" id="name" placeholder="nombre" [(ngModel)]="user.nombre"><br>
+      <label for="address">dirección</label>
+      <input type="text" name="address" id="address" placeholder="dirección" [(ngModel)]="user.direccion"><br>
+      <label for="phone">teléfono</label>
+      <input type="text" name="phone" id="phone" placeholder="teléfono" [(ngModel)]="user.telefono"><br>
+    </form>
+  </div>
+  <div class="buttonContainer">
+    <button (click)="traerTodos()">Buscar todos</button>
+  </div>
+  <div class="tableContainer">
+    <table id="table">
+      <title>Registro de usuarios</title>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+      </tr>
+      <tr class="userData" *ngFor="let user of content">
+        <td>{{user.id}}</td>
+        <td>{{user.nombre}}</td>
+        <td>{{user.direccion}}</td>
+        <td>{{user.telefono}}</td>
+      </tr>
+    </table>
+  </div>
+</section>
